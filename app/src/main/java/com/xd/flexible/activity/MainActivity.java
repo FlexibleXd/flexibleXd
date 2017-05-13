@@ -13,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LoadingDialog loadingDialog = new LoadingDialog(this, -1,-1);
+        LoadingDialog loadingDialog = new LoadingDialog(this, -1, -1);
+        //zzzzzzzzzzzzzzzzzzz
         loadingDialog.show();
+        loadingDialog.dismiss();
     }
 }
