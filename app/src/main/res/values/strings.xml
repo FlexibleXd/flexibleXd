@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flexible</string>
+    <string name="request_faile">获取失败，请检查网络状态</string>
+    <string name="no_net">网络不可用</string>
+</resources>

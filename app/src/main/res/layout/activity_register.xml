@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+    <!--android:background="@mipmap/login_bg"-->
+
+    <com.xd.xdmall.widget.ClearEditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@null"
+        android:drawableLeft="@mipmap/reg_phone"
+        android:drawablePadding="8dp"
+        android:hint="请输入手机号"
+        android:inputType="number"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="14sp" />
+
+    <View style="@style/dividerX" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.xd.xdmall.widget.ClearEditText
+            android:id="@+id/et_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableLeft="@mipmap/reg_code"
+            android:drawablePadding="8dp"
+            android:hint="验证码"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/tv_get_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_code"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="获取验证码"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+
+    <View style="@style/dividerX" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/iv_see"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/reg_see" />
+
+        <com.xd.xdmall.widget.ClearEditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/iv_see"
+            android:background="@null"
+            android:drawableLeft="@mipmap/reg_pwd"
+            android:drawablePadding="8dp"
+            android:hint="请设置登陆密码"
+            android:inputType="textPassword"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+    <View style="@style/dividerX" />
+
+
+    <Button
+        android:id="@+id/btn_reg"
+        style="@style/BtnStyle"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:text="注册" />
+
+
+</LinearLayout>

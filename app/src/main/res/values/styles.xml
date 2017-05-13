@@ -1,0 +1,106 @@
+<resources>
+
+
+
+    <style name="FlexibleTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="FlexibleTheme.Base" parent="FlexibleTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Activity.Translucent.Style</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarSize">@dimen/flexible_actionbar_size</item>
+        <item name="android:textAppearance">@style/Flexible.TextAppearance</item>
+        <item name="android:textAppearanceSmall">@style/Flexible.TextAppearance</item>
+        <item name="android:textColorPrimary">@color/flexible_text_color</item>
+        <item name="android:textColorPrimaryInverse">@color/flexible_text_color</item>
+        <item name="android:textColorTertiary">@color/flexible_text_color</item>
+        <item name="android:windowBackground">@color/flexible_background</item>
+    </style>
+
+    <style name="FlexibleTheme.Base.Main">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="FlexibleTheme.Base.Launcher">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Animation.Activity.Translucent.Style" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+
+    <style name="Flexible.TextAppearance" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/flexible_text_default</item>
+    </style>
+
+    <style name="Animation.Popup" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <style name="SwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@mipmap/shadow_left</item>
+        <item name="shadow_right">@mipmap/shadow_right</item>
+        <item name="shadow_bottom">@mipmap/shadow_bottom</item>
+    </style>
+
+
+    <!-- 圆形图片 -->
+    <declare-styleable name="ShapedImageView">
+        <attr name="shape_mode" format="enum">
+            <enum name="round_rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+        <attr name="round_radius" format="dimension" />
+
+        <attr name="stroke_width" format="dimension" />
+        <attr name="stroke_color" format="color|reference" />
+    </declare-styleable>
+
+
+    <!-- 分割线 -->
+    <style name="dividerX">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+
+    <style name="ViewX">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:background">@color/flexible_background</item>
+    </style>
+
+    <style name="dividerY">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+    <!-- 主色调btn-->
+    <style name="BtnStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/selector_btn</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

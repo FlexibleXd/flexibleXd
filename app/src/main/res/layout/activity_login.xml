@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+
+
+    <com.xd.xdmall.widget.ClearEditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@null"
+        android:drawableLeft="@mipmap/reg_phone"
+        android:drawablePadding="8dp"
+        android:hint="请输入您的手机号码"
+        android:inputType="number"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textColorHint="@color/flexible_text_gray"
+        android:textSize="14sp" />
+
+    <View style="@style/dividerX" />
+
+    <com.xd.xdmall.widget.ClearEditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:drawableLeft="@mipmap/reg_pwd"
+        android:drawablePadding="8dp"
+        android:hint="请输入登陆密码"
+        android:inputType="textPassword"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textColorHint="@color/flexible_text_gray"
+        android:textSize="14sp" />
+
+    <View style="@style/dividerX" />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/BtnStyle"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:text="登陆" />
+
+
+    <TextView
+        android:id="@+id/tv_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:text="忘记密码"
+        android:textColor="@color/flexible_text_gray" />
+
+</LinearLayout>
