@@ -36,7 +36,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void isLoad(boolean isLoad) {
-        if (loadProgress == null) {
+        if (null==loadProgress  ) {
             loadProgress = LayoutInflater.from(this).inflate(R.layout.view_load_progress, null);
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             params.gravity = Gravity.CENTER;
@@ -48,11 +48,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             loadProgress.setVisibility(View.GONE);
         }
     }
-
-
-
-
-
 
 
     public void startActivity(Class<? extends Activity> clazz) {
@@ -108,6 +103,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
                 httpListener));
+    }
+
+    public <T> void request(int what, Request<T> request, NoHttpListener<T> httpListener, boolean isLoad) {
+        // 这里设置一个sign给这个请求。
+        request.setCancelSign(cancelObject);
+
+        CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
+                httpListener, isLoad));
     }
 
     @Override
