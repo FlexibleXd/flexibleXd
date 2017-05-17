@@ -1,54 +1,86 @@
 package com.xd.flexible.activity;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 import com.xd.flexible.R;
 import com.xd.flexible.application.BaseActivity;
-import com.xd.flexible.network.NoHttpListener;
-import com.xd.flexible.network.NoHttpUtils;
-import com.xd.flexible.widget.LoadingDialog;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.Response;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
+    @BindView(R.id.btn_ok)
+    Button btnOk;
 
-    @BindView(R.id.rv_base)
-    RecyclerView rvBase;
+    private static final int PERMISSIONS_REQUEST_CAMERA = 454;
+    static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        LoadingDialog loadingDialog = new LoadingDialog(this, -1, -1);
-//        loadingDialog.show();
-//        loadingDialog.dismiss();
-        request(1, NoHttpUtils.stringRequest("http://www.baidu.com"), new NoHttpListener<String>() {
+        btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onStart(int what) {
-
+            public void onClick(View v) {
+                checkSelfPermission();
             }
+        });
+    }
 
-            @Override
-            public void onFinish(int what) {
+    /**
+     * 检查权限
+     */
+    void checkSelfPermission() {
+        if (ContextCompat.checkSelfPermission(this, PERMISSION_CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{PERMISSION_CAMERA},
+                    PERMISSIONS_REQUEST_CAMERA);
+        } else {
+//            setTransparentWallpaper();
+            startWallpaper();
+        }
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_CAMERA: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    setTransparentWallpaper();
+                    startWallpaper();
+
+                } else {
+                    Toast.makeText(this, "zzzzzzzz", Toast.LENGTH_SHORT).show();
+                }
+                return;
             }
+        }
+    }
 
-            @Override
-            public void onSucceed(int what, Response<String> response) {
+    /**
+     * 选择壁纸
+     */
+    void startWallpaper() {
+        final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
+        Intent chooser = Intent.createChooser(pickWallpaper, "zzz");
+        startActivity(chooser);
+    }
 
-            }
-
-            @Override
-            public void onFailed(int what, Response<String> response) {
-
-            }
-        }, true);
+    /**
+     * 不需要手动启动服务
+     */
+    void setTransparentWallpaper() {
+        startService(new Intent(MainActivity.this, CameraLiveWallpaper.class));
     }
 }

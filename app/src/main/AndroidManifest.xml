@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xd.flexible">
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
     <application
         android:name=".application.XdApp"
         android:allowBackup="true"
@@ -16,6 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+            <!-- 配置实时壁纸Service -->
+            <service android:label="@string/app_name"
+                android:name=".activity.CameraLiveWallpaper"
+                android:permission="android.permission.BIND_WALLPAPER">
+                <!-- 为实时壁纸配置intent-filter -->
+                <intent-filter>
+                    <action  android:name="android.service.wallpaper.WallpaperService" />
+                </intent-filter>
+                <!-- 为实时壁纸配置meta-data -->
+                <meta-data android:name="android.service.wallpaper"
+                    android:resource="@xml/livewallpaper" />
+            </service>
+        </application>
 
 </manifest>
