@@ -63,6 +63,7 @@ public class AddrAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
+
     private void setDefault(int pos) {
         for (Map.Entry<Integer, Boolean> entry : isDefault.entrySet()) {
             if (pos == entry.getKey()) {

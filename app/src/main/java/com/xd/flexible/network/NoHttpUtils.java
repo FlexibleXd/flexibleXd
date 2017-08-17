@@ -84,6 +84,13 @@ public class NoHttpUtils {
         return fastJsonObjectRequest(url, RequestMethod.GET, param);
     }
 
+
+    /**
+     * 同步
+     * @param url
+     * @param param
+     * @return
+     */
     public static Response<com.alibaba.fastjson.JSONObject> fastJosnAsyn(String url, Map<String, String> param) {
         // 创建请求。
         FastJsonRequest request = new FastJsonRequest(url, RequestMethod.GET);
@@ -104,11 +111,11 @@ public class NoHttpUtils {
      * @param clazz  解析成的Bean
      * @param <T>
      */
-    public static <T> JavaBeanRequest<T> beanRequest(String url, RequestMethod method, Class<T> clazz) {
-        return beanRequest(url, method, clazz, null);
+    public static <T> JavaBeanRequest<T> beanRequest(String url, Class<T> clazz, RequestMethod method) {
+        return beanRequest(url, clazz, method, null);
     }
 
-    public static <T> JavaBeanRequest<T> beanRequest(String url, RequestMethod method, Class<T> clazz, Map<String, String> param) {
+    public static <T> JavaBeanRequest<T> beanRequest(String url, Class<T> clazz, RequestMethod method, Map<String, String> param) {
         JavaBeanRequest<T> request = new JavaBeanRequest(url, method, clazz);
         if (param != null) {
             request.add(param);
@@ -117,7 +124,7 @@ public class NoHttpUtils {
     }
 
     public static <T> JavaBeanRequest<T> beanRequest(String url, Class<T> clazz) {
-        return beanRequest(url, RequestMethod.GET, clazz);
+        return beanRequest(url, clazz, RequestMethod.GET);
     }
 
     /**

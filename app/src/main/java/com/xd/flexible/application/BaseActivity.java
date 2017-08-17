@@ -110,7 +110,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         request.setCancelSign(cancelObject);
 
         CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
-                httpListener, isLoad));
+                httpListener, isLoad,this));
     }
 
     @Override

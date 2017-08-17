@@ -1,4 +1,4 @@
-package com.xd.xdmall.activity;
+package com.xd.flexible.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +11,8 @@ import com.xd.flexible.activity.MainActivity;
 import com.xd.flexible.application.BaseActivity;
 import com.xd.flexible.utils.AppUtil;
 
+import java.lang.reflect.Method;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -18,7 +20,7 @@ import static com.xd.flexible.config.Config.SPLASH_TIME;
 
 
 /**
- * Created by Administrator on 2016/4/29 0029.
+ * Created by flexible on 2016/4/29 0029.
  */
 public class SplashActivity extends BaseActivity {
     @BindView(R.id.iv_splash)
@@ -34,6 +36,15 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initView();
+//        try {
+//            Object service = getSystemService("statusbar");
+//            Class<?> statusBarManager = Class.forName("android.app.StatusBarManage");
+//            Method disable = statusBarManager.getMethod("disable", int.class);
+//            disable.invoke(service,View.STATUS_BAR_HIDDEN ); // 为View.STATUS_BAR_DISABLE_HOME 的值/
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
     }
 
     private void initView() {
@@ -71,7 +82,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     protected void toNext() {
-        startActivity(MainActivity.class);
-        finish();
+//        startActivity(MainActivity.class);
+//        finish();
     }
 }

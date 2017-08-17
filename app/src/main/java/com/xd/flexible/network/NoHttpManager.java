@@ -2,6 +2,7 @@ package com.xd.flexible.network;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Build;
 import android.util.ArrayMap;
 
@@ -34,6 +35,7 @@ public class NoHttpManager<T> implements OnResponseListener<T> {
 
 
     private Boolean isLoad;
+    private Context ctx;
 
     public NoHttpManager(Request<T> request, NoHttpListener<T>
             httpListener) {
@@ -48,13 +50,21 @@ public class NoHttpManager<T> implements OnResponseListener<T> {
         this.isLoad = isLoad;
     }
 
+    public NoHttpManager(Request<T> request, NoHttpListener<T>
+            httpListener, boolean isLoad, Context ctx) {
+        mListener = httpListener;
+        this.mRequest = request;
+        this.isLoad = isLoad;
+        this.ctx = ctx;
+    }
+
     @Override
     public void onStart(int what) {
         if (null != mListener) {
             mListener.onStart(what);
             if (isLoad) {
                 if (null == loadingDialog)
-                    loadingDialog = new LoadingDialog(getActivity(), -1, -1);
+                    loadingDialog = new LoadingDialog(ctx, -1, -1);
                 loadingDialog.show();
             }
         }

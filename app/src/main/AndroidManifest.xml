@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xd.flexible">
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+
     <application
         android:name=".application.XdApp"
         android:allowBackup="true"
@@ -10,25 +13,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/FlexibleTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <!-- 配置实时壁纸Service -->
-            <service android:label="@string/app_name"
-                android:name=".activity.CameraLiveWallpaper"
-                android:permission="android.permission.BIND_WALLPAPER">
-                <!-- 为实时壁纸配置intent-filter -->
-                <intent-filter>
-                    <action  android:name="android.service.wallpaper.WallpaperService" />
-                </intent-filter>
-                <!-- 为实时壁纸配置meta-data -->
-                <meta-data android:name="android.service.wallpaper"
-                    android:resource="@xml/livewallpaper" />
-            </service>
-        </application>
+
+        <activity android:name=".activity.KtTest"></activity>
+        <!-- 配置实时壁纸Service -->
+        <service
+            android:name=".activity.CameraLiveWallpaper"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+    </application>
 
 </manifest>

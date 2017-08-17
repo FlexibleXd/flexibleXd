@@ -1,8 +1,6 @@
 package com.xd.flexible.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,26 +12,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.xd.flexible.R;
 import com.xd.flexible.application.BaseActivity;
-import com.xd.flexible.config.Api;
-import com.xd.flexible.model.event.LoginEvent;
-import com.xd.flexible.network.NoHttpListener;
-import com.xd.flexible.network.NoHttpUtils;
-import com.xd.flexible.utils.AppUtil;
-import com.xd.flexible.utils.DialogUtils;
-import com.xd.flexible.utils.LogUtils;
 import com.xd.flexible.utils.ToastUtil;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.Response;
-
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -41,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class Main1Activity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, View.OnClickListener {
+public class BottomNaBarActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, View.OnClickListener {
 
     @BindView(R.id.bnb_main_bottom_bar)
     BottomNavigationBar bnbMainBottomBar;
@@ -63,7 +45,7 @@ public class Main1Activity extends BaseActivity implements BottomNavigationBar.O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.activity_bottom_bar);
         ButterKnife.bind(this);
         intiView();
         initData();

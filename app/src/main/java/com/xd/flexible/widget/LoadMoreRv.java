@@ -10,6 +10,8 @@ import android.util.AttributeSet;
  */
 
 public class LoadMoreRv extends RecyclerView {
+    private  LoadMore loadMoreListener;
+
     public LoadMoreRv(Context context) {
         super(context);
     }
@@ -22,9 +24,16 @@ public class LoadMoreRv extends RecyclerView {
         super(context, attrs, defStyle);
     }
 
-//    @Override
-//    public void addOnScrollListener(OnScrollListener listener) {
-//        super.addOnScrollListener(listener);
+    @Override
+    public void addOnScrollListener(OnScrollListener listener) {
+    }
 
-//    }
+
+    public void setLoadMoreListener(LoadMore loadMoreListener) {
+        this.loadMoreListener = loadMoreListener;
+    }
+
+    interface LoadMore {
+        void loadMore();
+    }
 }
