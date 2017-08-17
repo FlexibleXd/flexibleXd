@@ -16,6 +16,7 @@ import com.xd.flexible.R;
 import com.xd.flexible.network.CallServer;
 import com.xd.flexible.network.NoHttpListener;
 import com.xd.flexible.network.NoHttpManager;
+import com.xd.flexible.utils.ToastUtil;
 import com.yolanda.nohttp.rest.Request;
 
 import java.io.Serializable;
@@ -36,7 +37,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void isLoad(boolean isLoad) {
-        if (null==loadProgress  ) {
+        if (null == loadProgress) {
             loadProgress = LayoutInflater.from(this).inflate(R.layout.view_load_progress, null);
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             params.gravity = Gravity.CENTER;
@@ -49,6 +50,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    public void toast(String content) {
+        ToastUtil.showToast(XdApp.getAppContext(), content);
+    }
 
     public void startActivity(Class<? extends Activity> clazz) {
         Intent intent = new Intent();
@@ -110,7 +115,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         request.setCancelSign(cancelObject);
 
         CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
-                httpListener, isLoad,this));
+                httpListener, isLoad, this));
     }
 
     @Override

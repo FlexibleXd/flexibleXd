@@ -26,7 +26,6 @@ public class NoHttpUtils {
      * @param method 请求方式
      */
     public static Request<String> stringRequest(String url, RequestMethod method) {
-
         Request<String> request = NoHttp.createStringRequest(url, method);
         return request;
     }
@@ -38,16 +37,17 @@ public class NoHttpUtils {
     /**
      * jsonObeject
      *
-     * @param url    api地址
-     * @param method 请求方式
      */
-    public static Request<JSONObject> jsonObjectRequest(String url, RequestMethod method) {
-        return jsonObjectRequest(url, method, null);
-    }
 
     public static Request<JSONObject> jsonObjectRequest(String url) {
         return jsonObjectRequest(url, RequestMethod.GET);
     }
+
+    public static Request<JSONObject> jsonObjectRequest(String url, RequestMethod method) {
+        return jsonObjectRequest(url, method, null);
+    }
+
+
 
     public static Request<JSONObject> jsonObjectRequest(String url, RequestMethod method, Map<String, String> param) {
         Request<JSONObject> request = NoHttp.createJsonObjectRequest(url, method);
@@ -61,11 +61,16 @@ public class NoHttpUtils {
     /**
      * FastJson
      *
-     * @param url    api地址
-     * @param method 请求方式
      */
+
+    public static FastJsonRequest fastJsonObjectRequest(String url) {
+        return fastJsonObjectRequest(url, RequestMethod.GET);
+    }
     public static FastJsonRequest fastJsonObjectRequest(String url, RequestMethod method) {
         return fastJsonObjectRequest(url, method, null);
+    }
+    public static FastJsonRequest fastJsonObjectRequest(String url, Map<String, String> param) {
+        return fastJsonObjectRequest(url, RequestMethod.GET, param);
     }
 
     public static FastJsonRequest fastJsonObjectRequest(String url, RequestMethod method, Map<String, String> param) {
@@ -76,13 +81,8 @@ public class NoHttpUtils {
         return request;
     }
 
-    public static FastJsonRequest fastJsonObjectRequest(String url) {
-        return fastJsonObjectRequest(url, RequestMethod.GET);
-    }
 
-    public static FastJsonRequest fastJsonObjectRequest(String url, Map<String, String> param) {
-        return fastJsonObjectRequest(url, RequestMethod.GET, param);
-    }
+
 
 
     /**

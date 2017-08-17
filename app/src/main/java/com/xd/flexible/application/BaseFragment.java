@@ -13,6 +13,7 @@ import com.xd.flexible.R;
 import com.xd.flexible.network.CallServer;
 import com.xd.flexible.network.NoHttpListener;
 import com.xd.flexible.network.NoHttpManager;
+import com.xd.flexible.utils.ToastUtil;
 import com.yolanda.nohttp.rest.Request;
 
 import java.io.Serializable;
@@ -66,6 +67,10 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         startActivity(intent);
     }
 
+    public void toast(String content) {
+        ToastUtil.showToast(XdApp.getAppContext(), content);
+    }
+
     private Object cancelObject = new Object();
 
     public <T> void request(int what, Request<T> request, NoHttpListener<T> httpListener) {
@@ -74,6 +79,16 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
 
         CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
                 httpListener));
+    }
+
+
+
+    public <T> void request(int what, Request<T> request, NoHttpListener<T> httpListener,boolean isLoad) {
+        // 这里设置一个sign给这个请求。
+        request.setCancelSign(cancelObject);
+
+        CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
+                httpListener,isLoad,getActivity()));
     }
 
     @Override

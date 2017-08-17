@@ -22,6 +22,7 @@ import java.io.File;
 public class DownService extends Service {
     private DownloadManager downManager;
     private String build;
+    private long id;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -64,10 +65,10 @@ public class DownService extends Service {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setTitle(getResources().getString(R.string.app_name));
         request.setAllowedOverRoaming(false);
-        //设置文件存放目录
+        //设置文件存放 目录
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "xx"+build+".apk");
         downManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        downManager.enqueue(request);
+        id = downManager.enqueue(request);
 
     }
 
@@ -76,7 +77,7 @@ public class DownService extends Service {
             if (intent.getAction().equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                 intent = new Intent(Intent.ACTION_VIEW);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/download/xx"+build+".apk")),
+                intent.setDataAndType(downManager.getUriForDownloadedFile(id),
                         "application/vnd.android.package-archive");
                 startActivity(intent);
                 stopSelf();

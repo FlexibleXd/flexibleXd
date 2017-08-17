@@ -12,7 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/FlexibleTheme">
+        android:theme="@style/FlexibleTheme.Base">
         <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
