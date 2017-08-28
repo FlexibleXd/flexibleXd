@@ -36,7 +36,6 @@ public class NoHttpUtils {
 
     /**
      * jsonObeject
-     *
      */
 
     public static Request<JSONObject> jsonObjectRequest(String url) {
@@ -46,7 +45,6 @@ public class NoHttpUtils {
     public static Request<JSONObject> jsonObjectRequest(String url, RequestMethod method) {
         return jsonObjectRequest(url, method, null);
     }
-
 
 
     public static Request<JSONObject> jsonObjectRequest(String url, RequestMethod method, Map<String, String> param) {
@@ -60,15 +58,16 @@ public class NoHttpUtils {
 
     /**
      * FastJson
-     *
      */
 
     public static FastJsonRequest fastJsonObjectRequest(String url) {
         return fastJsonObjectRequest(url, RequestMethod.GET);
     }
+
     public static FastJsonRequest fastJsonObjectRequest(String url, RequestMethod method) {
         return fastJsonObjectRequest(url, method, null);
     }
+
     public static FastJsonRequest fastJsonObjectRequest(String url, Map<String, String> param) {
         return fastJsonObjectRequest(url, RequestMethod.GET, param);
     }
@@ -82,11 +81,9 @@ public class NoHttpUtils {
     }
 
 
-
-
-
     /**
      * 同步
+     *
      * @param url
      * @param param
      * @return

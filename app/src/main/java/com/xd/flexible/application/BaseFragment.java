@@ -35,7 +35,6 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
         startActivityForResult(intent, code);
     }
 
-
     public void startActivityForResult(Class<? extends Activity> clazz, int code, String... data) {
         if (data.length % 2 == 1) {
             return;
@@ -82,13 +81,12 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
-    public <T> void request(int what, Request<T> request, NoHttpListener<T> httpListener,boolean isLoad) {
+    public <T> void request(int what, Request<T> request, NoHttpListener<T> httpListener, boolean isLoad) {
         // 这里设置一个sign给这个请求。
         request.setCancelSign(cancelObject);
 
         CallServer.getInstance().add(what, request, new NoHttpManager<T>(request,
-                httpListener,isLoad,getActivity()));
+                httpListener, isLoad, getActivity()));
     }
 
     @Override
