@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.XdApp"
@@ -15,13 +16,15 @@
         android:theme="@style/FlexibleTheme.Base">
         <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.SplashActivity">
+
+        </activity>
+        <activity android:name=".activity.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.KtTest"></activity>
         <!-- 配置实时壁纸Service -->
         <service
@@ -39,7 +42,7 @@
         </service>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.xvzoom.wallet.fileprovider"
+            android:authorities="com.xd.flexible.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

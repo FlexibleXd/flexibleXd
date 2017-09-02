@@ -80,7 +80,7 @@ public class AddrActivity extends ToolBarActivity {
 
     private void initData() {
         Intent intent = getIntent();
-        if (intent != null) {
+        if (null != intent) {
             type = intent.getStringExtra("type");
         }
 

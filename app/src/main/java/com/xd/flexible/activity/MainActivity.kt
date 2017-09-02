@@ -12,6 +12,7 @@ import com.xd.flexible.R
 import com.xd.flexible.application.BaseActivity
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.xd.flexible.utils.AvatarMananger
 
 class MainActivity : BaseActivity() {
 //    @BindView(R.id.btn_ok)
@@ -22,6 +23,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
 //        btnOk!!.setOnClickListener { checkSelfPermission() }
+        AvatarMananger.newInstance(this).openAlbum();
     }
 
 

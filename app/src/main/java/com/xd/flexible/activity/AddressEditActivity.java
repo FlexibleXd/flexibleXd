@@ -74,7 +74,7 @@ public class AddressEditActivity extends ToolBarActivity {
 
     private void initData() {
         Intent intent = getIntent();
-        if (intent != null) {
+        if (null!=intent ) {
             addrsBean = (AddrBean.AddrlistBean) intent.getSerializableExtra(AddrAdapter.ADDR);
             etPhone.setText(addrsBean.phone);
             etPerson.setText(addrsBean.name);

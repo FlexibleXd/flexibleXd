@@ -94,7 +94,7 @@ public class CollectActivity extends ToolBarActivity {
         isLoad(true);
         Map<String, String> param = new HashMap<>();
         param.put("pageNumber", 1 + "");
-        request(1, NoHttpUtils.beanRequest("", RequestMethod.GET, CollectBean.class, param), new NoHttpListener<CollectBean>() {
+        request(1, NoHttpUtils.beanRequest("",  CollectBean.class,RequestMethod.GET, param), new NoHttpListener<CollectBean>() {
             @Override
             public void onStart(int what) {
 
@@ -144,7 +144,7 @@ public class CollectActivity extends ToolBarActivity {
         isLoad(true);
         Map<String, String> param = new HashMap<>();
         param.put("pageNumber", page + "");
-        request(1, NoHttpUtils.beanRequest("", RequestMethod.GET, CollectBean.class, param), new NoHttpListener<CollectBean>() {
+        request(1, NoHttpUtils.beanRequest("", CollectBean.class, RequestMethod.GET, param), new NoHttpListener<CollectBean>() {
             @Override
             public void onStart(int what) {
 
