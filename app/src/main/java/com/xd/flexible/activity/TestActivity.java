@@ -2,7 +2,6 @@ package com.xd.flexible.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -11,10 +10,13 @@ import android.widget.ImageView;
 
 import com.xd.flexible.R;
 import com.xd.flexible.utils.AvatarMananger;
+import com.xd.flexible.widget.BannerView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.yolanda.nohttp.NoHttp.getContext;
 
 
 /**
@@ -28,13 +30,21 @@ public class TestActivity extends Activity {
     Button album;
     @BindView(R.id.pic)
     Button pic;
-
+    @BindView(R.id.banner)
+    BannerView banner;
+    private int[] resouce = new int[]{R.mipmap.banner1, R.mipmap.banner2, R.mipmap.no_net};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
+        for (int i = 0; i < resouce.length; i++) {
+            ImageView iv = new ImageView(getContext());
+            iv.setImageResource(resouce[i]);
+            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            banner.addView(iv);
+        }
     }
 
     @OnClick({R.id.album, R.id.pic})
@@ -44,7 +54,7 @@ public class TestActivity extends Activity {
                 AvatarMananger.newInstance(TestActivity.this).openAlbum();
                 break;
             case R.id.pic:
-                  AvatarMananger.newInstance(TestActivity.this).takePic();
+                AvatarMananger.newInstance(TestActivity.this).takePic();
                 break;
         }
     }

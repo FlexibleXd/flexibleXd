@@ -7,17 +7,25 @@
     <ImageView
         android:id="@+id/iv_show"
         android:layout_width="140dp"
-        android:layout_height="140dp" />
+        android:layout_height="140dp"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/album"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="album" />
+        android:text="album"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/pic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pic" />
+        android:text="pic"
+        android:visibility="gone" />
+
+    <com.xd.flexible.widget.BannerView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 </LinearLayout>

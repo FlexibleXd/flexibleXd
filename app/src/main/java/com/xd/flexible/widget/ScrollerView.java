@@ -49,7 +49,6 @@ public class ScrollerView extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogUtils.LOGE("zzz", "event.getAction(" + event.getAction());
         int x = (int)event. getX();
         int y = (int) event.getY();
         switch (event.getAction()) {
@@ -65,7 +64,6 @@ public class ScrollerView extends ViewGroup {
 
             case MotionEvent.ACTION_UP:
                 View parent = (View) getParent();
-                LogUtils.LOGE("zzz", "(parent.getScrollX()" + parent.getScrollX());
                 mScroller.startScroll(parent.getScrollX(), parent.getScrollY(), -parent.getScrollX(), -parent.getScrollY());
                 invalidate();
                 break;
