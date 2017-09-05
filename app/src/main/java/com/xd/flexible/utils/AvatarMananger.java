@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-
 import java.io.File;
 
 
@@ -43,12 +42,18 @@ public class AvatarMananger {
         return instance;
     }
 
+    /**
+     * 打开图库
+     */
     public void openAlbum() {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         act.startActivityForResult(intent, AVATER_ALBUM);
     }
 
+    /**
+     * 拍照
+     */
     public void takePic() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         lastUri = Uri.fromFile(new File(AVATAR_PATH + "/" + System.currentTimeMillis() + ".jpg"));
@@ -56,7 +61,9 @@ public class AvatarMananger {
         act.startActivityForResult(intent, AVATER_PIC);
     }
 
-
+    /**
+     * 裁剪
+     */
     public void cropePic(Uri uri, int outputX, int outputY) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");
