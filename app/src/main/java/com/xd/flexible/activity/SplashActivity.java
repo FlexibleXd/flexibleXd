@@ -7,11 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xd.flexible.R;
-import com.xd.flexible.activity.MainActivity;
 import com.xd.flexible.application.BaseActivity;
 import com.xd.flexible.utils.AppUtil;
 
-import java.lang.reflect.Method;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

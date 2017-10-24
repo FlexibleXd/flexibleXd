@@ -34,7 +34,7 @@ public class NoHttpManager<T> implements OnResponseListener<T> {
     private LoadingDialog loadingDialog;
 
 
-    private Boolean isLoad;
+    private boolean isLoad;
     private Context ctx;
 
     public NoHttpManager(Request<T> request, NoHttpListener<T>

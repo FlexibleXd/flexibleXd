@@ -3,6 +3,9 @@ package com.xd.flexible.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
+import com.xd.flexible.R;
 import com.xd.flexible.config.Config;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
@@ -21,6 +24,13 @@ public class XdApp extends Application {
 
     @Override
     public void onCreate() {
+        StringBuffer param = new StringBuffer();
+        param.append("appid="+getString(R.string.app_id));
+        param.append(",");
+        // 设置使用v5+
+        param.append(SpeechConstant.ENGINE_MODE+"="+SpeechConstant.MODE_MSC);
+        SpeechUtility.createUtility(XdApp.this, param.toString());
+
         super.onCreate();
         noHttpConfig();
         ctx = getApplicationContext();

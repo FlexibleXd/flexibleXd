@@ -81,7 +81,7 @@ public class DownService extends Service {
                 intent = new Intent(Intent.ACTION_VIEW);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Uri contentUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileprovider", new File(Environment.getExternalStorageDirectory() + "/download/xvwallet_" + build + ".apk"));
+                    Uri contentUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileprovider", new File(Environment.getExternalStorageDirectory() + "/download/"+appNmme + build + ".apk"));
                     intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
                 } else {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

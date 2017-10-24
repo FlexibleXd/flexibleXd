@@ -52,17 +52,7 @@
     </style>
 
 
-    <!-- 圆形图片 -->
-    <declare-styleable name="ShapedImageView">
-        <attr name="shape_mode" format="enum">
-            <enum name="round_rect" value="1" />
-            <enum name="circle" value="2" />
-        </attr>
-        <attr name="round_radius" format="dimension" />
 
-        <attr name="stroke_width" format="dimension" />
-        <attr name="stroke_color" format="color|reference" />
-    </declare-styleable>
 
 
     <!-- 分割线 -->
