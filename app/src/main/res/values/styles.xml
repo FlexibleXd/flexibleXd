@@ -19,6 +19,7 @@
         <item name="android:textColorPrimaryInverse">@color/flexible_text_color</item>
         <item name="android:textColorTertiary">@color/flexible_text_color</item>
         <item name="android:windowBackground">@color/flexible_background</item>
+        <!--<item name="android:windowLightStatusBar">true</item>//修改状态栏颜色-->
     </style>
 
     <style name="FlexibleTheme.Base.Main">

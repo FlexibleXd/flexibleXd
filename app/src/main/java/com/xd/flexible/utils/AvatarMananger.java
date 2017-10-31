@@ -1,6 +1,7 @@
 package com.xd.flexible.utils;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -9,6 +10,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
+
 
 import com.xd.flexible.BuildConfig;
 
@@ -29,6 +32,7 @@ public class AvatarMananger {
     private static Activity act;
     public static Uri lastUri;
     public static File picFile;
+    private String[] choose = {"拍照", "从相册获取"};
 
     private AvatarMananger() {
         deleterFile();
@@ -48,6 +52,44 @@ public class AvatarMananger {
         if (null == instance)
             instance = new AvatarMananger();
         return instance;
+    }
+
+    /**
+     * 打开弹框
+     */
+    public void openDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(act);
+        dialog.setItems(choose, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    takePic();
+                } else {
+                    openAlbum();
+                }
+                dialog.dismiss();
+            }
+        }).show();
+
+    }
+
+    /**
+     * 打开弹框
+     */
+    public void openDialog(final int photo, final int album) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(act);
+        dialog.setItems(choose, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    takePic(photo);
+                } else {
+                    openAlbum(album);
+                }
+                dialog.dismiss();
+            }
+        }).show();
+
     }
 
     /**
@@ -161,10 +203,17 @@ public class AvatarMananger {
         return lastUri;
     }
 
-    public File getAlbumFile() {
+
+
+    /**
+     * 无裁剪后获取相册文件
+     *
+     * @return
+     */
+    public File getAlbumFile(Uri uri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};
-        Cursor cursor = act.getContentResolver().query(AvatarMananger.getLastUri(), proj, null, null, null);
+        Cursor cursor = act.getContentResolver().query(uri, proj, null, null, null);
         if (cursor.moveToFirst()) {
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             res = cursor.getString(column_index);
@@ -175,7 +224,26 @@ public class AvatarMananger {
         return file;
     }
 
-    public static File getPicFile() {
+    /**
+     * 剪裁完成后获取相册文件
+     *
+     * @return
+     */
+    public File getAlbumFile() {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = act.getContentResolver().query(lastUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        File file = new File(res);
+
+        return file;
+    }
+
+    public File getPicFile() {
         return picFile;
     }
 }

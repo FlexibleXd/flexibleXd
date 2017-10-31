@@ -9,10 +9,9 @@ import com.yolanda.nohttp.rest.Response;
 public interface NoHttpListener<T> {
     void onStart(int what);
 
-    void onFinish(int what);
-
-
     void onSucceed(int what, Response<T> response);
+
+    void onFinish(int what);
 
     void onFailed(int what, Response<T> response);
 

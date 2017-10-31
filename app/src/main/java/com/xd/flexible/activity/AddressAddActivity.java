@@ -12,11 +12,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.xd.flexible.R;
 import com.xd.flexible.application.ToolBarActivity;
-import com.xd.flexible.config.Api;
 import com.xd.flexible.model.event.RefreshAddrEvent;
 import com.xd.flexible.network.NoHttpListener;
 import com.xd.flexible.network.NoHttpUtils;
-import com.xd.flexible.utils.CityPickUtils;
+import com.xd.flexible.utils.PickUtils;
 import com.xd.flexible.utils.KeyboardUtils;
 import com.xd.flexible.utils.NetworkUtils;
 import com.xd.flexible.utils.RegularUtils;
@@ -74,19 +73,19 @@ public class AddressAddActivity extends ToolBarActivity {
      */
     private void intiPickerView() {
 
-        pvCity = CityPickUtils.intiPickerView(this);
-        pvCity.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3) {
-                //返回的分别是三个级别的选中位置
-                String province = CityPickUtils.options1Items.get(options1).getName();
-                String city = CityPickUtils.options2Items.get(options1).get(option2);
-                String district = CityPickUtils.options3Items.get(options1).get(option2).get(options3);
-                tvAddrProvince.setText(province);
-                tvAddrCity.setText(city);
-                tvAddrArea.setText(district);
-            }
-        });
+//        pvCity = PickUtils.intiPickerView(this);
+//        pvCity.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
+//            @Override
+//            public void onOptionsSelect(int options1, int option2, int options3) {
+//                //返回的分别是三个级别的选中位置
+//                String province = PickUtils.options1Items.get(options1).getName();
+//                String city = PickUtils.options2Items.get(options1).get(option2);
+//                String district = PickUtils.options3Items.get(options1).get(option2).get(options3);
+//                tvAddrProvince.setText(province);
+//                tvAddrCity.setText(city);
+//                tvAddrArea.setText(district);
+//            }
+//        });
 
     }
 

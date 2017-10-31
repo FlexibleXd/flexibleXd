@@ -151,7 +151,7 @@ public class NoHttpUtils {
     public static Request<com.alibaba.fastjson.JSONObject> bitmapRequset(String url, RequestMethod method, Map<String, Bitmap> param) {
         FastJsonRequest request = new FastJsonRequest(url, method);
         for (Map.Entry<String, Bitmap> entry : param.entrySet()) {
-            request.add(entry.getKey(), new BitmapBinary(entry.getValue(), "head.jpg"));
+            request.add(entry.getKey(), new BitmapBinary(entry.getValue(), "img.jpg"));
         }
         return request;
     }

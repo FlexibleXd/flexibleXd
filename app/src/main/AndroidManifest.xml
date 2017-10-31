@@ -14,21 +14,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/FlexibleTheme.Base">
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.SplashActivity" />
 
         <activity android:name=".activity.TestActivity">
+
+        </activity>
+
+        <activity android:name=".mscv5plusdemo.TtsDemo">
+
+        </activity>
+        <activity android:name=".activity.RcvActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".mscv5plusdemo.TtsDemo">
-
-        </activity>
-
         <activity android:name=".activity.KtTest"></activity>
         <!-- 配置实时壁纸Service -->
         <service
