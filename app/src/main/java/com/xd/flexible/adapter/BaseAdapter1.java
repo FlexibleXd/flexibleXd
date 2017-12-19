@@ -189,12 +189,17 @@ public abstract class BaseAdapter1<T> extends RecyclerView.Adapter<RecyclerView.
     }
 
     public void init() {
-//        if (data.size() == 0) {
-//            holderType.add(CT_EMPTY);
-//            return;
-//        }
+        if (data.size() == 0) {
+            holderType.clear();
+            holderType.add(CT_EMPTY);
+            return;
+        }
+        if (data.size() == 1) {
+            if (holderType.get(0) == CT_EMPTY)
+                return;
+        }
         holderType.clear();
-        LogUtils.LOGE("z",data+"");
+        LogUtils.LOGE("z", data + "");
         for (int i = 0; i < data.size(); i++) {
             holderType.add(CELL);
         }
@@ -228,7 +233,7 @@ public abstract class BaseAdapter1<T> extends RecyclerView.Adapter<RecyclerView.
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {//停止滑动状态
                     if (!isAutoLoad && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
                         scrollLoadMore();
                     }
@@ -240,9 +245,10 @@ public abstract class BaseAdapter1<T> extends RecyclerView.Adapter<RecyclerView.
                 super.onScrolled(recyclerView, dx, dy);
                 if (isAutoLoad && findLastVisibleItemPosition(layoutManager) + 1 == getItemCount()) {
                     scrollLoadMore();
-                } else if (isAutoLoad) {
-                    isAutoLoad = false;
                 }
+//                else if (isAutoLoad) {
+//                    isAutoLoad = false;
+//                }
             }
         });
     }
