@@ -15,22 +15,6 @@ import com.xd.flexible.R;
  */
 
 public class GlideUtils {
-//    public static void glide2Iv(Context ctx, String imageUrl, ImageView imageView) {
-//        Glide.with(ctx).load(imageUrl).centerCrop().into(imageView);
-//    }
-
-
-    /**
-     * 产品图片 有默认图片
-     *
-     * @param ctx
-     * @param imageUrl
-     * @param imageView
-     */
-    public static void pro2Iv(Context ctx, String imageUrl, ImageView imageView) {
-        Glide.with(ctx).load(imageUrl).centerCrop().placeholder(R.mipmap.default_pro).into(imageView);
-    }
-
     /**
      * 普通加载 无默认 int
      *
@@ -43,29 +27,19 @@ public class GlideUtils {
     }
 
     /**
-     * 头像 int
+     * url
      *
      * @param ctx
      * @param imageUrl
      * @param imageView
      */
-    public static void head2Iv(Context ctx, int imageUrl, ImageView imageView) {
-        Glide.with(ctx).load(imageUrl).centerCrop().placeholder(R.mipmap.defatult_head).into(imageView);
+    public static void url2Iv(Context ctx, String imageUrl,ImageView imageView) {
+        Glide.with(ctx).load(imageUrl).centerCrop().into(imageView);
     }
 
-    /**
-     * 头像 string
-     *
-     * @param ctx
-     * @param imageUrl
-     * @param imageView
-     */
-    public static void head2Iv(Context ctx, String imageUrl, ImageView imageView) {
-        Glide.with(ctx).load(imageUrl).centerCrop().placeholder(R.mipmap.defatult_head).into(imageView);
-    }
 
     /**
-     * string
+     * string 带默认图片
      *
      * @param ctx
      * @param imageUrl
@@ -74,19 +48,18 @@ public class GlideUtils {
     public static void default2Iv(Context ctx, String imageUrl, int defaultImg, ImageView imageView) {
         Glide.with(ctx).load(imageUrl).centerCrop().placeholder(defaultImg).into(imageView);
     }
-
-    //    public static void glide2Iv(Context ctx, String imageUrl, ImageView imageView, int defaultIv) {
-//        Glide.with(ctx).load(imageUrl).centerCrop().placeholder(defaultIv).into(imageView);
-//    }
-//
-//    public static void glide2Iv(Context ctx, String imageUrl, ImageView imageView, int defaultIv, int errIv) {
-//        Glide.with(ctx).load(imageUrl).centerCrop().placeholder(defaultIv).error(errIv).into(imageView);
-//    }
-//
-//
+    /**
+     * uri
+     *
+     * @param ctx
+     * @param imageUri
+     * @param imageView
+     */
     public static void uri2Iv(Context ctx, Uri imageUri, ImageView imageView) {
         Glide.with(ctx).load(imageUri).centerCrop().into(imageView);
     }
+
+//
 //
 //    public static void glide2IvBitmap(Context ctx, Bitmap imageUri, ImageView imageView) {
 //        ByteArrayOutputStream baos = new ByteArrayOutputStream();

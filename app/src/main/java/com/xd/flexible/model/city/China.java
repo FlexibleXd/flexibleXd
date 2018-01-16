@@ -2,7 +2,7 @@ package com.xd.flexible.model.city;
 
 import java.util.ArrayList;
 
-public class China {
+public class China  {
     public ArrayList<Province> citylist;
 
    public class Province {

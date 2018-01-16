@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.xd.flexible.R;
+import com.xd.flexible.adapter.refensh.AdapterItemListener;
+import com.xd.flexible.adapter.refensh.BaseAdapter;
+import com.xd.flexible.adapter.refensh.BaseVHolder;
+import com.xd.flexible.adapter.refensh.FootVHolder;
 
 import java.util.List;
 
@@ -18,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by Flexible on 2017/10/31 0031.
  */
 
-public class RcvAdapter extends BaseAdapter1 {
+public class RcvAdapter extends BaseAdapter {
 
 
     public RcvAdapter(List data, Context ctx, AdapterItemListener onItemClickListener) {

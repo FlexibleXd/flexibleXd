@@ -15,4 +15,11 @@ public interface Config {
     int SPLASH_TIME = 5 * 1000;
     String WX_APPID = "";
 
+
+
+    String WV_DATA = "wv_data";
+    String WV_TYPE = "wv_type";
+    String WV_URL = "wv_url";
+    String WV_TEXT = "wv_text";
+
 }

@@ -79,9 +79,6 @@ public class BottomActivity extends BaseActivity implements BottomNavigationBar.
         tbMy.setVisibility(View.GONE);
 
 
-
-
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -203,8 +200,10 @@ public class BottomActivity extends BaseActivity implements BottomNavigationBar.
 
 //    @Subscribe
 //    public void Login(LoginEvent lg) {
-//        startActivity(MainActivity.class);
-//        startActivity(LoginActivity.class);
+//        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+//                Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        startActivity(intent);
 //    }
 
     private void checkVersion() {

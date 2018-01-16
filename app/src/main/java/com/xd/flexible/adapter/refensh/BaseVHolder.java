@@ -1,9 +1,11 @@
-package com.xd.flexible.adapter;
+package com.xd.flexible.adapter.refensh;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.xd.flexible.adapter.refensh.AdapterItemListener;
 
 /**
  * Created by Flexible on 2017/10/25 0025.

@@ -38,7 +38,7 @@ public class XdApp extends Application {
 
 
     private void noHttpConfig() {
-        NoHttp.initialize(this, new NoHttp.Config().setConnectTimeout(NET_CONNECTION_TIMEOUT).setReadTimeout(NET_READ_TIMEOUT).setCacheStore(new DiskCacheStore(this)));
+        NoHttp.initialize(this, new NoHttp.Config().setConnectTimeout(Config.NET_CONNECTION_TIMEOUT).setReadTimeout(Config.NET_READ_TIMEOUT).setCacheStore(new DiskCacheStore(this)));
         Logger.setDebug(Config.DEBUG); // 开启NoHttp调试模式。
         Logger.setTag("flexible"); // 设置NoHttp打印Log的TAG。
     }

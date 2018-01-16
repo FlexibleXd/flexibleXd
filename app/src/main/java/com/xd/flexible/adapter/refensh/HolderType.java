@@ -1,4 +1,4 @@
-package com.xd.flexible.adapter;
+package com.xd.flexible.adapter.refensh;
 
 public interface HolderType {
     int CELL = 1000;

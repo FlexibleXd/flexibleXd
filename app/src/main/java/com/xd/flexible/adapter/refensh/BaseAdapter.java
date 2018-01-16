@@ -1,4 +1,4 @@
-package com.xd.flexible.adapter;
+package com.xd.flexible.adapter.refensh;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,19 +15,16 @@ import com.xd.flexible.application.XdApp;
 import com.xd.flexible.utils.LogUtils;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import static android.R.attr.type;
-
 /**
  * Created by Flexible on 2017/10/24 0024.
  */
 
-public abstract class BaseAdapter1<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements AdapterItemListener, HolderType, LoadMoreListener {
+public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements AdapterItemListener, HolderType, LoadMoreListener {
     private AdapterItemListener onItemClickListener;
     private LoadMoreListener loadMoreListener;
     public List<T> data;
@@ -37,20 +34,20 @@ public abstract class BaseAdapter1<T> extends RecyclerView.Adapter<RecyclerView.
     public List<Integer> holderType = new LinkedList<>();
 
 
-    public BaseAdapter1(List<T> data, Context ctx, AdapterItemListener onItemClickListener) {
+    public BaseAdapter(List<T> data, Context ctx, AdapterItemListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
         this.data = data;
         this.ctx = ctx;
         init();
     }
 
-    public BaseAdapter1(List<T> data, Context ctx) {
+    public BaseAdapter(List<T> data, Context ctx) {
         this.data = data;
         this.ctx = ctx;
         init();
     }
 
-    public BaseAdapter1(List<T> data) {
+    public BaseAdapter(List<T> data) {
         this.data = data;
         this.ctx = XdApp.getAppContext();
         init();

@@ -1,29 +1,24 @@
 package com.xd.flexible.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.xd.flexible.R;
-import com.xd.flexible.adapter.LoadMoreListener;
+import com.xd.flexible.adapter.refensh.LoadMoreListener;
 import com.xd.flexible.adapter.RcvAdapter;
 import com.xd.flexible.application.ToolBarActivity;
 import com.xd.flexible.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler;
-import in.srain.cube.views.ptr.header.StoreHouseHeader;
 
 /**
  * Created by Flexible on 2017/10/31 0031.

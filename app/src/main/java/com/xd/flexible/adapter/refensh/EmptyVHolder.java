@@ -1,4 +1,4 @@
-package com.xd.flexible.adapter;
+package com.xd.flexible.adapter.refensh;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
